@@ -6,24 +6,853 @@
     "white": 52,
     "black": 36
   },
+  "frequencies": {
+    "A0": 27.5,
+    "A4": 440,
+    "C8": 4186.01
+  },
   "audio": {
     "contexts": 1,
     "resumeCalls": 0,
-    "oscillatorStarts": 3,
+    "oscillatorStarts": 28,
     "initialState": "running",
     "state": "running"
+  },
+  "pointerHitTests": [
+    {
+      "side": "left",
+      "x": 1059,
+      "y": 697.30546875,
+      "hitMidi": 61
+    },
+    {
+      "side": "right",
+      "x": 1081,
+      "y": 697.30546875,
+      "hitMidi": 61
+    }
+  ],
+  "keyboardFocus": {
+    "active": true,
+    "visible": true,
+    "zIndex": "1",
+    "outlineWidth": "3px",
+    "blackKeyHitMidi": 61
+  },
+  "recording": {
+    "timeline": [
+      {
+        "midi": 60,
+        "deltaMs": 0,
+        "durationMs": 1939
+      },
+      {
+        "midi": 64,
+        "deltaMs": 321,
+        "durationMs": 813
+      }
+    ],
+    "replayOverlaps": [
+      {
+        "speed": 0.5,
+        "overlapStartMs": 321,
+        "overlapEndMs": 1134,
+        "overlapWindowMs": 1626,
+        "observedAtMs": 725.1194000000005
+      },
+      {
+        "speed": 1,
+        "overlapStartMs": 321,
+        "overlapEndMs": 1134,
+        "overlapWindowMs": 813,
+        "observedAtMs": 365.4214000000002
+      },
+      {
+        "speed": 2,
+        "overlapStartMs": 321,
+        "overlapEndMs": 1134,
+        "overlapWindowMs": 406.5,
+        "observedAtMs": 204.77020000000084
+      },
+      {
+        "speed": 0.5,
+        "overlapStartMs": 321,
+        "overlapEndMs": 1134,
+        "overlapWindowMs": 1626,
+        "observedAtMs": 689.3428999999996
+      }
+    ]
   },
   "mobileLayout": {
     "viewport": 390,
     "documentWidth": 390,
-    "pianoWidth": 1612,
-    "pianoViewport": 334
+    "pianoWidth": 1768,
+    "pianoViewport": 334,
+    "whiteKeyWidth": 34,
+    "blackKeyWidth": 24
   },
+  "regressions": [
+    {
+      "name": "black-key pointer hit-test around held white keys",
+      "result": "PASS",
+      "hits": [
+        {
+          "side": "left",
+          "x": 1059,
+          "y": 697.30546875,
+          "hitMidi": 61
+        },
+        {
+          "side": "right",
+          "x": 1081,
+          "y": 697.30546875,
+          "hitMidi": 61
+        }
+      ],
+      "chord": [
+        60,
+        62,
+        61
+      ]
+    },
+    {
+      "name": "white-key focus-visible stacking",
+      "result": "PASS",
+      "focusedMidi": 60,
+      "blackKeyHitMidi": 61,
+      "whiteZIndex": "1",
+      "outlineWidth": "3px"
+    },
+    {
+      "name": "eight-voice FIFO stealing",
+      "result": "PASS",
+      "activeAfterNinthOnset": 8,
+      "oldestMidi": 21,
+      "stolenMidi": 21,
+      "ninthMidi": 29
+    },
+    {
+      "name": "Play → Stop → Play with immediate cancellation",
+      "result": "PASS"
+    }
+  ],
+  "axe": {
+    "audits": [
+      {
+        "viewport": "desktop",
+        "state": "empty",
+        "playPresentation": {
+          "disabled": true,
+          "opacity": "1",
+          "color": "rgb(85, 89, 79)",
+          "backgroundColor": "rgb(239, 238, 231)",
+          "status": "TRỐNG"
+        },
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "count": 94,
+            "examples": [
+              {
+                "target": [
+                  ".art-note--one"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-note--two"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  "b"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  "button[aria-label=\"A0, 27.50 hertz\"] > .piano-key__label"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined due to a background gradient",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.8pt (9px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgGradient",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "viewport": "desktop",
+        "state": "recording",
+        "playPresentation": {
+          "disabled": true,
+          "opacity": "1",
+          "color": "rgb(85, 89, 79)",
+          "backgroundColor": "rgb(239, 238, 231)",
+          "status": "ĐANG GHI"
+        },
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "count": 95,
+            "examples": [
+              {
+                "target": [
+                  ".art-note--one"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-note--two"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  "b"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  "button[aria-label=\"A0, 27.50 hertz\"] > .piano-key__label"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined due to a background gradient",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.8pt (9px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgGradient",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "viewport": "desktop",
+        "state": "has-recording",
+        "playPresentation": {
+          "disabled": false,
+          "opacity": "1",
+          "color": "rgb(249, 246, 235)",
+          "backgroundColor": "rgb(37, 59, 49)",
+          "status": "SẴN SÀNG"
+        },
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "count": 93,
+            "examples": [
+              {
+                "target": [
+                  ".art-note--one"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-note--two"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  "b"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  "button[aria-label=\"A0, 27.50 hertz\"] > .piano-key__label"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined due to a background gradient",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.8pt (9px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgGradient",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "viewport": "desktop",
+        "state": "playing",
+        "playPresentation": {
+          "disabled": true,
+          "opacity": "1",
+          "color": "rgb(85, 89, 79)",
+          "backgroundColor": "rgb(239, 238, 231)",
+          "status": "ĐANG PHÁT"
+        },
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "count": 93,
+            "examples": [
+              {
+                "target": [
+                  ".art-note--one"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-note--two"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  "b"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  "button[aria-label=\"A0, 27.50 hertz\"] > .piano-key__label"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined due to a background gradient",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.8pt (9px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgGradient",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "viewport": "mobile",
+        "state": "has-recording",
+        "playPresentation": {
+          "disabled": false,
+          "opacity": "1",
+          "color": "rgb(249, 246, 235)",
+          "backgroundColor": "rgb(37, 59, 49)",
+          "status": "SẴN SÀNG"
+        },
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "count": 97,
+            "examples": [
+              {
+                "target": [
+                  ".hero-tags > span:nth-child(3)"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it's partially obscured by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.0pt (8px)",
+                      "fontWeight": "normal",
+                      "messageKey": "elmPartiallyObscured",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-note--one"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-core > span"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it is overlapped by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "40.5pt (54px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgOverlap",
+                      "expectedContrastRatio": "3:1"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-core > small"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it is overlapped by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.8pt (9px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgOverlap",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "viewport": "mobile",
+        "state": "playing",
+        "playPresentation": {
+          "disabled": true,
+          "opacity": "1",
+          "color": "rgb(85, 89, 79)",
+          "backgroundColor": "rgb(239, 238, 231)",
+          "status": "ĐANG PHÁT"
+        },
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "count": 97,
+            "examples": [
+              {
+                "target": [
+                  ".hero-tags > span:nth-child(3)"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it's partially obscured by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.0pt (8px)",
+                      "fontWeight": "normal",
+                      "messageKey": "elmPartiallyObscured",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-note--one"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-core > span"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it is overlapped by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "40.5pt (54px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgOverlap",
+                      "expectedContrastRatio": "3:1"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-core > small"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it is overlapped by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.8pt (9px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgOverlap",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "viewport": "mobile",
+        "state": "empty",
+        "playPresentation": {
+          "disabled": true,
+          "opacity": "1",
+          "color": "rgb(85, 89, 79)",
+          "backgroundColor": "rgb(239, 238, 231)",
+          "status": "TRỐNG"
+        },
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "count": 98,
+            "examples": [
+              {
+                "target": [
+                  ".hero-tags > span:nth-child(3)"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it's partially obscured by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.0pt (8px)",
+                      "fontWeight": "normal",
+                      "messageKey": "elmPartiallyObscured",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-note--one"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-core > span"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it is overlapped by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "40.5pt (54px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgOverlap",
+                      "expectedContrastRatio": "3:1"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-core > small"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it is overlapped by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.8pt (9px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgOverlap",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "viewport": "mobile",
+        "state": "recording",
+        "playPresentation": {
+          "disabled": true,
+          "opacity": "1",
+          "color": "rgb(85, 89, 79)",
+          "backgroundColor": "rgb(239, 238, 231)",
+          "status": "ĐANG GHI"
+        },
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "count": 99,
+            "examples": [
+              {
+                "target": [
+                  ".hero-tags > span:nth-child(3)"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it's partially obscured by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.0pt (8px)",
+                      "fontWeight": "normal",
+                      "messageKey": "elmPartiallyObscured",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-note--one"
+                ],
+                "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element content contains only non-text characters",
+                    "data": {
+                      "messageKey": "nonBmp"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-core > span"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it is overlapped by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "40.5pt (54px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgOverlap",
+                      "expectedContrastRatio": "3:1"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": [
+                  ".art-core > small"
+                ],
+                "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                "checks": [
+                  {
+                    "id": "color-contrast",
+                    "message": "Element's background color could not be determined because it is overlapped by another element",
+                    "data": {
+                      "contrastRatio": 0,
+                      "fontSize": "6.8pt (9px)",
+                      "fontWeight": "normal",
+                      "messageKey": "bgOverlap",
+                      "expectedContrastRatio": "4.5:1"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "failingAudits": 0,
+    "violationIds": []
+  },
+  "browserErrors": [],
   "result": "PASS",
   "screenshots": [
     "github-pages-desktop.png",
-    "github-pages-mobile.png"
+    "github-pages-mobile.png",
+    "github-pages-black-key-hit-test.png",
+    "github-pages-focus-visible.png"
   ],
-  "browserErrors": [],
-  "checkedAt": "2026-11-02T04:20:07.539Z"
+  "checkedAt": "2026-11-02T15:13:14.703Z"
 }

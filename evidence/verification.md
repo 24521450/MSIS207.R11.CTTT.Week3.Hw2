@@ -31,6 +31,14 @@ Ngày kiểm: 02-11-2026. Phạm vi: chỉ `W3/Hw2`. Baseline được lấy t�
 - Axe chạy ở desktop và mobile trong bốn trạng thái: trống, đang ghi, có bản thu, đang phát. **8/8 audit không có violation**, gồm color-contrast, target-size và label-content-name-mismatch. Không tắt rule. `color-contrast` còn mục `incomplete` cho ký hiệu trang trí, nền gradient và một nhãn hero bị artwork chạm một phần trên mobile; đây là mục cần đánh giá thủ công, không phải violation. Các nhãn trên phím được tính contrast tại mọi điểm đầu/cuối của gradient trong [`contrast-manual.json`](contrast-manual.json); ảnh mobile cho thấy chữ tag vẫn đọc được.
 - Không có console, page, request hay HTTP errors.
 
+## Xác minh GitHub Pages sau deploy
+
+- Commit mã `77570015901784bcba057a9139329b491a0ac239` được deploy thành công bởi [workflow #3](https://github.com/24521450/MSIS207.R11.CTTT.Week3.Hw2/actions/runs/41469234934) (`Verify and deploy GitHub Pages`).
+- Browser regression trên URL live lúc `2026-11-02 15:13:14 UTC` — pass; 88/52/36 phím, A0/A4/C8 đúng tần số, pointer C♯4 hai mép đều MIDI 61, focus-visible giữ outline 3 px mà không che phím đen, FIFO giữ 8 voice và steal note cổ nhất.
+- Timeline thu live: C4 `durationMs=1939`; E4 `deltaMs=321`, `durationMs=813`. Poll quan sát overlap tại 725 ms (0.5x), 365 ms (1x), 205 ms (2x) trong các cửa sổ tính từ timeline; mobile 0.5x pass tại 689 ms. Stop và Play → Stop → Play pass.
+- Axe live: 8/8 lượt desktop/mobile × bốn trạng thái không có violation; browser errors rỗng. Mobile viewport 390 px có document width 390 px, đàn cuộn ngang trong viewport 334 px; phím đen rộng 24 px.
+- Ảnh và báo cáo live: [`github-pages-desktop.png`](github-pages-desktop.png), [`github-pages-mobile.png`](github-pages-mobile.png), [`github-pages-black-key-hit-test.png`](github-pages-black-key-hit-test.png), [`github-pages-focus-visible.png`](github-pages-focus-visible.png), [`github-pages.json`](github-pages.json), [`github-pages-axe.json`](github-pages-axe.json).
+
 ## Bằng chứng
 
 - Baseline: [`before-axe-desktop.png`](before-axe-desktop.png), [`before-axe-mobile.png`](before-axe-mobile.png), [`baseline-review-20261102.json`](baseline-review-20261102.json). Baseline ghi 57 desktop và 56 mobile color-contrast nodes, 36 black-key target-size nodes, cùng một accessible-name mismatch mỗi viewport.
