@@ -1,0 +1,29 @@
+{
+  "url": "https://24521450.github.io/MSIS207.R11.CTTT.Week3.Hw2/",
+  "title": "Studio 88 — Piano đa âm",
+  "keys": {
+    "total": 88,
+    "white": 52,
+    "black": 36
+  },
+  "audio": {
+    "contexts": 1,
+    "resumeCalls": 0,
+    "oscillatorStarts": 3,
+    "initialState": "running",
+    "state": "running"
+  },
+  "mobileLayout": {
+    "viewport": 390,
+    "documentWidth": 390,
+    "pianoWidth": 1612,
+    "pianoViewport": 334
+  },
+  "result": "PASS",
+  "screenshots": [
+    "github-pages-desktop.png",
+    "github-pages-mobile.png"
+  ],
+  "browserErrors": [],
+  "checkedAt": "2026-11-02T04:20:07.539Z"
+}

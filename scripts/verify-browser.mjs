@@ -161,7 +161,9 @@ try {
   assert.equal(await page.getByRole('button', { name: '0.5x' }).getAttribute('aria-pressed'), 'true')
   const playButton = page.getByRole('button', { name: 'Phát' })
   await playButton.click()
-  await page.waitForTimeout(105)
+  // At 0.5x the recorded 66ms onset gap becomes ~132ms during playback.
+  // Wait past that onset while staying inside the notes' shared duration.
+  await page.waitForTimeout(180)
   assert.equal(await c4.getAttribute('aria-pressed'), 'true')
   assert.equal(await e4.getAttribute('aria-pressed'), 'true', `E4 should overlap C4 during slow replay: ${await rows.allTextContents()}`)
   await page.getByRole('button', { name: 'Dừng' }).click()
