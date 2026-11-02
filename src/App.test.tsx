@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, type ProfilerOnRenderCallback } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import App from './App.tsx'
@@ -48,8 +48,9 @@ function pianoKey(name: string): HTMLButtonElement {
   return screen.getByRole('button', { name: new RegExp(`^${name},`) }) as HTMLButtonElement
 }
 
-function renderStudio() {
-  return render(<StrictMode><App /></StrictMode>)
+function renderStudio(onPianoKeyCommit?: ProfilerOnRenderCallback) {
+  const props = onPianoKeyCommit ? { onPianoKeyCommit } : {}
+  return render(<StrictMode><App {...props} /></StrictMode>)
 }
 
 beforeEach(() => {
@@ -65,21 +66,33 @@ afterEach(() => {
 
 describe('piano studio interactions', () => {
   it('keeps the 88 memoized keys isolated when one key is held and released', async () => {
-    renderStudio()
+    const updateCommits = new Map<string, number>()
+    const onPianoKeyCommit: ProfilerOnRenderCallback = (id, phase) => {
+      if (phase === 'mount') return
+      updateCommits.set(id, (updateCommits.get(id) ?? 0) + 1)
+    }
+    renderStudio(onPianoKeyCommit)
     const c4 = pianoKey('C4')
     const cSharp4 = pianoKey('C♯4')
-    const c4Before = Number(c4.dataset.renderCount)
-    const cSharpBefore = Number(cSharp4.dataset.renderCount)
+    const keyIds = Array.from(document.querySelectorAll<HTMLButtonElement>('.piano-key'), (key) => `piano-key-${key.dataset.midi}`)
+    expect(keyIds).toHaveLength(88)
+    const baseline = new Map(keyIds.map((id) => [id, updateCommits.get(id) ?? 0]))
+    const updateCount = (id: string) => updateCommits.get(id) ?? 0
 
     fireEvent.pointerDown(c4, { button: 0, pointerId: 4 })
     await waitFor(() => expect(c4).toHaveAttribute('aria-pressed', 'true'))
-    expect(Number(c4.dataset.renderCount)).toBe(c4Before + 1)
-    expect(Number(cSharp4.dataset.renderCount)).toBe(cSharpBefore)
+    expect(updateCount('piano-key-60')).toBe((baseline.get('piano-key-60') ?? 0) + 1)
+    for (const id of keyIds) {
+      if (id !== 'piano-key-60') expect(updateCount(id)).toBe(baseline.get(id))
+    }
 
     fireEvent.pointerUp(c4, { button: 0, pointerId: 4 })
     await waitFor(() => expect(c4).toHaveAttribute('aria-pressed', 'false'))
-    expect(Number(c4.dataset.renderCount)).toBe(c4Before + 2)
-    expect(Number(cSharp4.dataset.renderCount)).toBe(cSharpBefore)
+    expect(updateCount('piano-key-60')).toBe((baseline.get('piano-key-60') ?? 0) + 2)
+    for (const id of keyIds) {
+      if (id !== 'piano-key-60') expect(updateCount(id)).toBe(baseline.get(id))
+    }
+    expect(cSharp4).toHaveAttribute('aria-pressed', 'false')
   })
 
   it('keeps a MIDI note active until every pointer and keyboard source releases it', async () => {

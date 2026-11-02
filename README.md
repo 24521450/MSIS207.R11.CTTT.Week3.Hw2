@@ -65,9 +65,9 @@ Mỗi sự kiện trong hàng đợi có dạng:
 
 ## Kiểm thử và bằng chứng
 
-`npm test` dùng Vitest và DOM mô phỏng. AudioContext trong các unit/integration test được thay bằng fake nodes để xác nhận giới hạn voice, FIFO stealing, ADSR/release/disconnect, race khi retrigger, tốc độ replay, overlap, abort, 88 phím và nguồn giữ nhiều loại. Test render isolation so sánh render count sau khi mount StrictMode: với một lần đổi trạng thái C4, count của riêng C4 tăng một commit, C♯4 không đổi.
+`npm test` dùng Vitest và DOM mô phỏng. AudioContext trong các unit/integration test được thay bằng fake nodes để xác nhận giới hạn voice, FIFO stealing, ADSR/release/disconnect, race khi retrigger, tốc độ replay, overlap, abort, 88 phím và nguồn giữ nhiều loại. Test render isolation dùng `React.Profiler` cho từng phím: baseline được chụp sau StrictMode mount; nhấn rồi thả C4 tạo đúng một commit mỗi lần ở C4, còn 87 phím khác giữ nguyên số commit.
 
-Hành vi âm thanh thật, giao diện responsive, console và bundle production được kiểm tra riêng bằng trình duyệt Chromium trên Vite preview và URL GitHub Pages. Fake Web Audio test không thay thế kiểm tra với Web Audio thật. Kết quả, giới hạn phép kiểm và ảnh chụp màn hình nằm trong [`evidence/verification.md`](evidence/verification.md).
+`npm run verify:browser` chạy browser regression trên production preview bằng Edge, Web Audio thật và axe-core. Nó dùng chuột thật để hit-test hai mép phím đen C♯4 khi C4 hoặc C4+D4 đang giữ, kiểm tra focus-visible, 88/52/36 phím, 8 voice FIFO, recording và overlap ở cả ba tốc độ theo onset/duration đã ghi, Stop → Play, layout mobile và lỗi console/network. Axe chạy ở desktop/mobile trong bốn trạng thái: trống, đang ghi, có bản thu và đang phát. Thêm `-- --url=https://24521450.github.io/MSIS207.R11.CTTT.Week3.Hw2/` để kiểm tra site live bằng cùng các luồng. Fake Web Audio test không thay thế kiểm tra với Web Audio thật. Kết quả, bằng chứng trước/sau và giới hạn phép kiểm nằm trong [`evidence/verification.md`](evidence/verification.md).
 
 ## Deploy
 

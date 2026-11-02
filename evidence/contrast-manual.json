@@ -1,0 +1,69 @@
+{
+  "method": "WCAG relative luminance contrast, checked against every endpoint of each CSS text-background gradient",
+  "minimumForSmallText": "4.5:1",
+  "checks": [
+    {
+      "selector": "secondary text on canvas and paper",
+      "foreground": "#5f6259",
+      "backgrounds": ["#f2f0e9", "#fffefa"],
+      "ratios": [5.45, 6.16],
+      "minimum": 5.45
+    },
+    {
+      "selector": "orange text on paper and canvas",
+      "foreground": "#9d4a22",
+      "backgrounds": ["#fffefa", "#f2f0e9"],
+      "ratios": [6.06, 5.36],
+      "minimum": 5.36
+    },
+    {
+      "selector": "hero eyebrow accent on hero surface",
+      "foreground": "#e9a36e",
+      "backgrounds": ["#1e2c25"],
+      "ratios": [6.88],
+      "minimum": 6.88
+    },
+    {
+      "selector": "white-key label, normal gradient stops",
+      "foreground": "#595c54",
+      "backgrounds": ["#fffefa", "#fbfaf5", "#efede5"],
+      "ratios": [6.75, 6.52, 5.81],
+      "minimum": 5.81
+    },
+    {
+      "selector": "white-key label, pressed gradient stops",
+      "foreground": "#6a371f",
+      "backgrounds": ["#fff4e7", "#f0c49e"],
+      "ratios": [8.88, 6.01],
+      "minimum": 6.01
+    },
+    {
+      "selector": "black-key label, normal gradient stops",
+      "foreground": "#d7d8cf",
+      "backgrounds": ["#373a34", "#181a17", "#090a09"],
+      "ratios": [8.04, 12.19, 13.8],
+      "minimum": 8.04
+    },
+    {
+      "selector": "black-key label, pressed gradient stops",
+      "foreground": "#fffefa",
+      "backgrounds": ["#a4512b", "#773a1c"],
+      "ratios": [5.49, 8.65],
+      "minimum": 5.49
+    },
+    {
+      "selector": "record button text on active fill",
+      "foreground": "#fff8f3",
+      "backgrounds": ["#a4512b"],
+      "ratios": [5.27],
+      "minimum": 5.27
+    },
+    {
+      "selector": "disabled play text on disabled fill",
+      "foreground": "#55594f",
+      "backgrounds": ["#efeee7"],
+      "ratios": [6.17],
+      "minimum": 6.17
+    }
+  ]
+}

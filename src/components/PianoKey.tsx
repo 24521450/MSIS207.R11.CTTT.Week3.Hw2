@@ -1,4 +1,4 @@
-import { memo, useLayoutEffect, useRef, type CSSProperties, type PointerEvent, type KeyboardEvent } from 'react'
+import { memo, useRef, type CSSProperties, type PointerEvent, type KeyboardEvent } from 'react'
 import type { PianoNote } from '../audio/piano-notes.ts'
 
 export interface PianoKeyProps {
@@ -9,14 +9,7 @@ export interface PianoKeyProps {
 }
 
 function PianoKeyView({ note, isPressed, onNoteStart, onNoteEnd }: PianoKeyProps) {
-  const renderCount = useRef(0)
   const heldButtonKeys = useRef(new Set<string>())
-  const buttonRef = useRef<HTMLButtonElement>(null)
-
-  useLayoutEffect(() => {
-    renderCount.current += 1
-    if (buttonRef.current) buttonRef.current.dataset.renderCount = String(renderCount.current)
-  }, [isPressed, note])
 
   const style: CSSProperties = {
     left: note.isBlack
@@ -73,7 +66,6 @@ function PianoKeyView({ note, isPressed, onNoteStart, onNoteEnd }: PianoKeyProps
       onPointerCancel={handlePointerEnd}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerEnd}
-      ref={buttonRef}
       style={style}
       tabIndex={0}
       type="button"

@@ -1,0 +1,480 @@
+{
+  "date": "2026-11-02T14:18:02.710Z",
+  "sites": [
+    {
+      "hw": 1,
+      "url": "https://24521450.github.io/MSIS207.R11.CTTT.Week3.Hw1/",
+      "status": 200,
+      "title": "Production Studio — Drum Kit",
+      "errors": [],
+      "axe": {
+        "desktop": {
+          "violations": [],
+          "incomplete": [
+            "color-contrast",
+            "label-content-name-mismatch"
+          ]
+        },
+        "mobile": {
+          "violations": [],
+          "incomplete": [
+            "color-contrast",
+            "label-content-name-mismatch"
+          ]
+        }
+      }
+    },
+    {
+      "hw": 2,
+      "url": "https://24521450.github.io/MSIS207.R11.CTTT.Week3.Hw2/",
+      "status": 200,
+      "title": "Studio 88 — Piano đa âm",
+      "errors": [],
+      "axe": {
+        "desktop": {
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "count": 57,
+              "examples": [
+                {
+                  "target": [
+                    ".brand-copy > span"
+                  ],
+                  "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.95 (foreground color: #8b8d84, background color: #f2f0e9, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+                },
+                {
+                  "target": [
+                    ".topbar-meta"
+                  ],
+                  "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.94 (foreground color: #75786f, background color: #f2f0e9, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+                },
+                {
+                  "target": [
+                    ".instrument-heading > div:nth-child(1) > .eyebrow"
+                  ],
+                  "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.73 (foreground color: #969e91, background color: #fffefa, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+                }
+              ]
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "count": 1,
+              "examples": [
+                {
+                  "target": [
+                    ".brand"
+                  ],
+                  "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            },
+            {
+              "id": "target-size",
+              "impact": "serious",
+              "count": 36,
+              "examples": [
+                {
+                  "target": [
+                    "button[aria-label=\"A♯0, 29.14 hertz\"]"
+                  ],
+                  "summary": "Fix any of the following:\n  Target has insufficient size (23px by 139.1px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px."
+                },
+                {
+                  "target": [
+                    "button[aria-label=\"C♯1, 34.65 hertz\"]"
+                  ],
+                  "summary": "Fix any of the following:\n  Target has insufficient size (23px by 139.1px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px."
+                },
+                {
+                  "target": [
+                    "button[aria-label=\"D♯1, 38.89 hertz\"]"
+                  ],
+                  "summary": "Fix any of the following:\n  Target has insufficient size (23px by 139.1px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px."
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            "aria-prohibited-attr",
+            "color-contrast"
+          ]
+        },
+        "mobile": {
+          "violations": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "count": 56,
+              "examples": [
+                {
+                  "target": [
+                    ".brand-copy > span"
+                  ],
+                  "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.95 (foreground color: #8b8d84, background color: #f2f0e9, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+                },
+                {
+                  "target": [
+                    ".instrument-heading > div:nth-child(1) > .eyebrow"
+                  ],
+                  "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.73 (foreground color: #969e91, background color: #fffefa, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+                },
+                {
+                  "target": [
+                    ".instrument-heading > div:nth-child(1) > .eyebrow > span"
+                  ],
+                  "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.09 (foreground color: #d97842, background color: #fffefa, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+                }
+              ]
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "count": 1,
+              "examples": [
+                {
+                  "target": [
+                    ".brand"
+                  ],
+                  "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            },
+            {
+              "id": "target-size",
+              "impact": "serious",
+              "count": 36,
+              "examples": [
+                {
+                  "target": [
+                    "button[aria-label=\"A♯0, 29.14 hertz\"]"
+                  ],
+                  "summary": "Fix any of the following:\n  Target has insufficient size (19px by 111.4px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 19px instead of at least 24px."
+                },
+                {
+                  "target": [
+                    "button[aria-label=\"C♯1, 34.65 hertz\"]"
+                  ],
+                  "summary": "Fix any of the following:\n  Target has insufficient size (19px by 111.4px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 19px instead of at least 24px."
+                },
+                {
+                  "target": [
+                    "button[aria-label=\"D♯1, 38.89 hertz\"]"
+                  ],
+                  "summary": "Fix any of the following:\n  Target has insufficient size (19px by 111.4px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 19px instead of at least 24px."
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            "aria-prohibited-attr",
+            "color-contrast"
+          ]
+        }
+      }
+    },
+    {
+      "hw": 3,
+      "url": "https://24521450.github.io/MSIS207.R11.CTTT.Week3.Hw3/",
+      "status": 200,
+      "title": "PUBG Vietnam Championship | Airdrop Arena",
+      "errors": [],
+      "axe": {
+        "desktop": {
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "count": 1,
+              "examples": [
+                {
+                  "target": [
+                    ".brand-lockup"
+                  ],
+                  "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            "aria-prohibited-attr",
+            "color-contrast",
+            "label-content-name-mismatch"
+          ]
+        },
+        "mobile": {
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "count": 1,
+              "examples": [
+                {
+                  "target": [
+                    ".brand-lockup"
+                  ],
+                  "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            "aria-prohibited-attr",
+            "color-contrast",
+            "label-content-name-mismatch"
+          ]
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "HW1 triggers at pointerdown",
+      "passed": false,
+      "details": {
+        "counter": "00"
+      }
+    },
+    {
+      "name": "HW1 releases outside",
+      "passed": false,
+      "details": {
+        "actual": "true"
+      }
+    },
+    {
+      "name": "HW1 pointer resets on blur",
+      "passed": false
+    },
+    {
+      "name": "HW1 ignores Enter auto-repeat",
+      "passed": false,
+      "details": {
+        "actual": "03"
+      }
+    },
+    {
+      "name": "HW1 W shortcut",
+      "passed": true
+    },
+    {
+      "name": "HW1 disabled shortcut",
+      "passed": true
+    },
+    {
+      "name": "HW1 console/HTTP",
+      "passed": true,
+      "details": {
+        "errors": []
+      }
+    },
+    {
+      "name": "HW2 generated keys",
+      "passed": true,
+      "details": {
+        "white": 52,
+        "black": 36
+      }
+    },
+    {
+      "name": "HW2 record overlapping notes",
+      "passed": true,
+      "details": {
+        "rows": [
+          "01C4261.63 Hz— ms0.72s",
+          "02E4329.63 Hz+254 ms0.31s"
+        ]
+      }
+    },
+    {
+      "name": "HW2 overlap 0.5x",
+      "passed": false,
+      "valid": false,
+      "reason": "Initial sample used planned input delay, but the actual recorded onset was 254 ms. It sampled before overlap. Replaced by polling during a longer recording."
+    },
+    {
+      "name": "HW2 Stop 0.5x",
+      "passed": true
+    },
+    {
+      "name": "HW2 overlap 1x",
+      "passed": false,
+      "valid": false,
+      "reason": "Initial sample used planned input delay, but the actual recorded onset was 254 ms. It sampled before overlap. Replaced by polling during a longer recording."
+    },
+    {
+      "name": "HW2 Stop 1x",
+      "passed": true
+    },
+    {
+      "name": "HW2 overlap 2x",
+      "passed": false,
+      "valid": false,
+      "reason": "Initial sample used planned input delay, but the actual recorded onset was 254 ms. It sampled before overlap. Replaced by polling during a longer recording."
+    },
+    {
+      "name": "HW2 Stop 2x",
+      "passed": true
+    },
+    {
+      "name": "HW2 no late note after Stop",
+      "passed": true
+    },
+    {
+      "name": "HW2 console/HTTP",
+      "passed": true,
+      "details": {
+        "errors": []
+      }
+    },
+    {
+      "name": "HW3 double click deducts once",
+      "passed": true
+    },
+    {
+      "name": "HW3 conflict reconciles zero",
+      "passed": true
+    },
+    {
+      "name": "HW3 error rollback",
+      "passed": true
+    },
+    {
+      "name": "HW3 retry",
+      "passed": true
+    },
+    {
+      "name": "HW3 stale response after reset",
+      "passed": true
+    },
+    {
+      "name": "HW3 pending preserved during scenario change",
+      "passed": false,
+      "details": {
+        "message": "Cơ hội giới hạn · xác nhận tức thì trong demo"
+      }
+    },
+    {
+      "name": "HW3 windowing 0",
+      "passed": true,
+      "details": {
+        "rows": 25
+      }
+    },
+    {
+      "name": "HW3 windowing 220000",
+      "passed": true,
+      "details": {
+        "rows": 25
+      }
+    },
+    {
+      "name": "HW3 windowing 1000000",
+      "passed": true,
+      "details": {
+        "rows": 17
+      }
+    },
+    {
+      "name": "HW3 empty filter",
+      "passed": true
+    },
+    {
+      "name": "HW3 console/HTTP",
+      "passed": true,
+      "details": {
+        "errors": []
+      }
+    },
+    {
+      "name": "HW2 overlap 0.5x",
+      "passed": true,
+      "details": {
+        "recordedRows": [
+          "01C4261.63 Hz— ms1.05s",
+          "02E4329.63 Hz+283 ms0.61s"
+        ],
+        "pressed": 2
+      }
+    },
+    {
+      "name": "HW2 overlap 1x",
+      "passed": true,
+      "details": {
+        "recordedRows": [
+          "01C4261.63 Hz— ms1.05s",
+          "02E4329.63 Hz+283 ms0.61s"
+        ],
+        "pressed": 2
+      }
+    },
+    {
+      "name": "HW2 overlap 2x",
+      "passed": true,
+      "details": {
+        "recordedRows": [
+          "01C4261.63 Hz— ms1.05s",
+          "02E4329.63 Hz+283 ms0.61s"
+        ],
+        "pressed": 2
+      }
+    },
+    {
+      "name": "HW2 held white key does not cover black key",
+      "passed": false,
+      "details": {
+        "before": {
+          "x": 1016.25,
+          "y": 654.8125,
+          "hit": "61"
+        },
+        "after": {
+          "x": 1016.25,
+          "y": 654.8125,
+          "hit": "60"
+        }
+      }
+    }
+  ],
+  "localChecks": {
+    "HW1": {
+      "commit": "14ed83d",
+      "typecheck": "pass",
+      "lint": "pass",
+      "tests": 14,
+      "build": "pass"
+    },
+    "HW2": {
+      "commit": "2d7eef1",
+      "typecheck": "pass",
+      "lint": "pass",
+      "tests": 22,
+      "build": "pass"
+    },
+    "HW3": {
+      "commit": "4562bb0",
+      "typecheck": "pass",
+      "lint": "pass",
+      "tests": 22,
+      "build": "pass"
+    }
+  },
+  "latestActions": {
+    "HW1": "https://github.com/24521450/MSIS207.R11.CTTT.Week3.Hw1/actions/runs/41389396125",
+    "HW2": "https://github.com/24521450/MSIS207.R11.CTTT.Week3.Hw2/actions/runs/41387923159",
+    "HW3": "https://github.com/24521450/MSIS207.R11.CTTT.Week3.Hw3/actions/runs/41387675717"
+  },
+  "lighthouse": {
+    "url": "https://24521450.github.io/MSIS207.R11.CTTT.Week3.Hw1/",
+    "fetchTime": "2026-11-02T14:18:36.262Z",
+    "scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "preset": "desktop"
+  }
+}

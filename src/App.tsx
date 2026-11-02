@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ProfilerOnRenderCallback } from 'react'
 import { frequencyForMidi, noteNameForMidi, PIANO_NOTES } from './audio/piano-notes.ts'
 import { playRecording, type RecordedNote } from './audio/recording.ts'
 import { PolyphonicSynth } from './audio/polyphonic-synth.ts'
-import { PianoKey } from './components/PianoKey.tsx'
+import { ProfiledPianoKey } from './components/ProfiledPianoKey.tsx'
 
 type ReplaySpeed = 0.5 | 1 | 2
 
@@ -64,7 +64,11 @@ function formatDuration(milliseconds: number): string {
   return `${(Math.round(milliseconds / 10) / 100).toFixed(2)}s`
 }
 
-function App() {
+export interface AppProps {
+  readonly onPianoKeyCommit?: ProfilerOnRenderCallback
+}
+
+function App({ onPianoKeyCommit }: AppProps = {}) {
   const [pressedMidis, setPressedMidis] = useState<ReadonlySet<number>>(() => new Set())
   const [recordedNotes, setRecordedNotes] = useState<readonly RecordedNote[]>([])
   const [isRecording, setIsRecording] = useState(false)
@@ -349,7 +353,7 @@ function App() {
   return (
     <main className="studio-shell">
       <header className="topbar">
-        <a className="brand" href="#top" aria-label="Studio 88, về đầu trang">
+        <a className="brand" href="#top">
           <span className="brand-mark" aria-hidden="true">s</span>
           <span className="brand-copy"><strong>studio</strong><span>88 / keys lab</span></span>
         </a>
@@ -383,15 +387,16 @@ function App() {
           <div className="piano-range"><strong>A0</strong><span className="range-line" /><strong>C8</strong><small>52 phím trắng · 36 phím đen</small></div>
         </div>
         <div className="piano-note"><span className="note-pulse" />{notice}</div>
-        <div className="keyboard-viewport" aria-label="Vùng đàn piano, cuộn ngang để xem đủ 88 phím">
+        <div className="keyboard-viewport" role="region" aria-label="Vùng đàn piano, cuộn ngang để xem đủ 88 phím">
           <div className="piano-keys" role="group" aria-label="Đàn piano 88 phím từ A0 đến C8">
             {stableNotes.map((note) => (
-              <PianoKey
+              <ProfiledPianoKey
                 key={note.midi}
                 isPressed={pressedMidis.has(note.midi)}
                 note={note}
                 onNoteEnd={releaseSource}
                 onNoteStart={holdSource}
+                onRenderCommit={onPianoKeyCommit ?? null}
               />
             ))}
           </div>
@@ -426,7 +431,7 @@ function App() {
                 <thead><tr><th>#</th><th>NỐT</th><th>TẦN SỐ</th><th>Δ ONSET</th><th>ĐỘ DÀI</th></tr></thead>
                 <tbody>
                   {liveQueue.map((note, index) => (
-                    <tr key={`${note.midi}-${index}`}>
+                    <tr data-delta-ms={note.deltaMs} data-duration-ms={note.liveDurationMs} data-note-midi={note.midi} key={`${note.midi}-${index}`}>
                       <td className="queue-index">{String(index + 1).padStart(2, '0')}</td>
                       <td><span className={`note-chip${note.midi % 12 === 1 || note.midi % 12 === 3 || note.midi % 12 === 6 || note.midi % 12 === 8 || note.midi % 12 === 10 ? ' note-chip--sharp' : ''}`}>{noteNameForMidi(note.midi)}</span></td>
                       <td>{note.freqHz.toFixed(2)} <small>Hz</small></td>
